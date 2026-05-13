@@ -37,6 +37,7 @@
     (sin parámetro)    → menú selector de modo
 
   Generado con el skill /sermon (v0.1.0).
+  Repositorio del skill: https://github.com/CafecitoTeologico/ct-skill-sermon
   ============================================================================
 -->
 <html lang="es">
@@ -1865,7 +1866,7 @@ function renderPrintMode() {
         body = `<p class="hook-text">${s.text || ''}</p>`;
         break;
       case 'punch':
-        body = `<p class="punch-text">${s.title || s.text || s.notes || ''}</p>`;
+        body = `<p class="punch-text">${s.line1 || ''}<br>${s.line2 || ''}</p>`;
         break;
       case 'transition':
         body = `<p class="hook-text">${s.left || ''}<br><br>${s.right || ''}</p>`;
@@ -1914,7 +1915,7 @@ function renderPrintMode() {
                 ${s.subtitle ? '<p class="action-subtitle">' + s.subtitle + '</p>' : ''}`;
         break;
       default:
-        body = `<p style="font-family:monospace;font-size:10pt;color:#888">${s.type} — ${(s.title || s.text || s.notes || '').toString().slice(0, 200)}</p>`;
+        body = `<p style="font-family:monospace;font-size:10pt;color:#888">${s.type} — ${(s.title || s.text || '').toString().slice(0, 200)}</p>`;
     }
 
     el.innerHTML = `
